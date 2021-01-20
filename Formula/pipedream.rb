@@ -5,29 +5,32 @@
 class Pipedream < Formula
   desc "PipeDream - Maintainable script automation"
   homepage "https://layer9.berlin/"
-  version "0.0.1+pipes-1321"
+  version "0.0.1+release-1436"
   license "GPL-3.0-or-later"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+pipes-1321/pipedream_0.0.1+pipes-1321_Darwin_x86_64.tar.gz"
-    sha256 "e0ea6457930756b66d3343e001a7c9f8f5a2ab1018afa8242561eba836c038a9"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+release-1436/pipedream_0.0.1+release-1436_Darwin_x86_64.tar.gz"
+    sha256 "d1519271bb081b8cc29eefb46f6c430cd801b14214842c4cb7d4dfeef700d5bd"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+pipes-1321/pipedream_0.0.1+pipes-1321_Linux_x86_64.tar.gz"
-    sha256 "5ba23009263674c753b5d37eb7535bc36272041c68b8298f57c0970dedf6b8d5"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+release-1436/pipedream_0.0.1+release-1436_Linux_x86_64.tar.gz"
+    sha256 "ce149e55c16b5437f4acf544b5d57581a48a76a4d6df29d70d5dadbb81fcddb6"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+pipes-1321/pipedream_0.0.1+pipes-1321_Linux_arm64.tar.gz"
-    sha256 "694764b60b690b26f394a391b190c5d7a04e46ba2acce617a001a5f02483996a"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+release-1436/pipedream_0.0.1+release-1436_Linux_arm64.tar.gz"
+    sha256 "d88247da5424f3bcb66f1732317be48af4c3acba4ec04be62fec54187cd074f4"
   end
 
   def install
     bin.install "pipedream"
+    bash_completion.install "completions/pipedream.bash" => "pipedream"
+    zsh_completion.install "completions/pipedream.zsh" => "pipedream"
+    fish_completion.install "completions/pipedream.fish"
     system "pipedream"
   end
 
   test do
-    system "pipedream --version"
+    system "#{bin}/pipedream --version"
   end
 end
