@@ -5,29 +5,26 @@
 class Pipedream < Formula
   desc "PipeDream - Maintainable script automation"
   homepage "https://layer9.berlin/"
-  version "0.0.1+release-1436"
+  version "0.0.1+test-release-1458"
   license "GPL-3.0-or-later"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+release-1436/pipedream_0.0.1+release-1436_Darwin_x86_64.tar.gz"
-    sha256 "d1519271bb081b8cc29eefb46f6c430cd801b14214842c4cb7d4dfeef700d5bd"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+test-release-1458/pipedream_0.0.1+test-release-1458_Darwin_x86_64.tar.gz"
+    sha256 "2b7ab4d6c2ac30ead5b5aa48448db64ecc62a1184ae3c0d03cf53e0ec3d52504"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+release-1436/pipedream_0.0.1+release-1436_Linux_x86_64.tar.gz"
-    sha256 "ce149e55c16b5437f4acf544b5d57581a48a76a4d6df29d70d5dadbb81fcddb6"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+test-release-1458/pipedream_0.0.1+test-release-1458_Linux_x86_64.tar.gz"
+    sha256 "fa18f870dd936bb8789e9975df1f4ef75a79437dabfdc1817c746116b64ea3e5"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+release-1436/pipedream_0.0.1+release-1436_Linux_arm64.tar.gz"
-    sha256 "d88247da5424f3bcb66f1732317be48af4c3acba4ec04be62fec54187cd074f4"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.0.1+test-release-1458/pipedream_0.0.1+test-release-1458_Linux_arm64.tar.gz"
+    sha256 "d24c3ef55183a53df79108fae9d08dac9f20e2a5203acb7acad3f36e8074e832"
   end
 
   def install
     bin.install "pipedream"
-    bash_completion.install "completions/pipedream.bash" => "pipedream"
-    zsh_completion.install "completions/pipedream.zsh" => "pipedream"
-    fish_completion.install "completions/pipedream.fish"
-    system "pipedream"
+    system "#{bin}/pipedream"
   end
 
   test do
