@@ -5,21 +5,21 @@
 class Pipedream < Formula
   desc "PipeDream - Maintainable script automation"
   homepage "https://layer9.berlin/"
-  version "0.32.0"
+  version "0.32.1"
   license "GPL-3.0-or-later"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.32.0/brew_pipedream_0.32.0_darwin_amd64.tar.gz"
-    sha256 "51c9b328c3583066d8ef00e7b19600bd4c27ff5bef5f297afea6204adaed27e2"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.32.1/brew_pipedream_0.32.1_darwin_amd64.tar.gz"
+    sha256 "378abb6327cccbf68e56b634e973d9b6b637a990e9f35782f6835ac8e1ce2d3d"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.32.0/brew_pipedream_0.32.0_linux_amd64.tar.gz"
-    sha256 "a8d3355c076c7c90012d3d7e61b09ffff24c6f6994d965ab1cffccbd218f619b"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.32.1/brew_pipedream_0.32.1_linux_amd64.tar.gz"
+    sha256 "74e59dc3999a4266291b0f7d36f4c36ff234cb6bcebacca8391d65f365f1ddcd"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.32.0/brew_pipedream_0.32.0_linux_arm64.tar.gz"
-    sha256 "6cb9f68899d032605a18639c20e3bf5b0406a1e1702d94ebf6172f7052c32717"
+    url "https://github.com/Layer9Berlin/PipeDream/releases/download/v0.32.1/brew_pipedream_0.32.1_linux_arm64.tar.gz"
+    sha256 "7686bfe6e041f7c0bcc0e7cec910d55f10fd27449f128e0e88cd23191a0bcaf2"
   end
 
   def install
